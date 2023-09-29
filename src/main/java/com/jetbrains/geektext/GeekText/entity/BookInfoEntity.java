@@ -29,7 +29,7 @@ public class BookInfoEntity {
     public BookInfoEntity(){
     }
 
-    public BookInfoEntity(long isbn, String book_name, String description, double price, String author, String genre, String publisher, int year_published, long copies_sold) {
+    public BookInfoEntity(Long isbn, String book_name, String description, double price, String author, String genre, String publisher, int year_published, Long copies_sold) {
         this.isbn = isbn;
         this.book_name = book_name;
         this.description = description;
@@ -41,11 +41,11 @@ public class BookInfoEntity {
         this.copies_sold = copies_sold;
     }
 
-    public long getIsbn() {
+    public Long getIsbn() {
         return isbn;
     }
 
-    public void setIsbn(long isbn) {
+    public void setIsbn(Long isbn) {
         this.isbn = isbn;
     }
 
@@ -105,11 +105,11 @@ public class BookInfoEntity {
         this.year_published = year_published;
     }
 
-    public long getCopies_sold() {
+    public Long getCopies_sold() {
         return copies_sold;
     }
 
-    public void setCopies_sold(long copies_sold) {
+    public void setCopies_sold(Long copies_sold) {
         this.copies_sold = copies_sold;
     }
 }
