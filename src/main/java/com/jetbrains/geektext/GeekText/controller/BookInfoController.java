@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+//run this with http://localhost:8080/bookinfo idk why
+
 @RestController
 @RequestMapping("/bookinfo")
 public class BookInfoController {
