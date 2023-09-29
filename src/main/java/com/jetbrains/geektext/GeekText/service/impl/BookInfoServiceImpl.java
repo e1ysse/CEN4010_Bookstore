@@ -22,8 +22,8 @@ public class BookInfoServiceImpl implements BookInfoService {
     }
 
     @Override
-    public Optional<BookInfoEntity> findById(Long id) {
-        return bookInfoRepository.findById(id); //maybe treat this like ISBN??
+    public Optional<BookInfoEntity> findByISBN(Long isbn) {
+        return bookInfoRepository.findById(isbn); //maybe treat this like ISBN??
     }
 
     @Override
@@ -37,7 +37,7 @@ public class BookInfoServiceImpl implements BookInfoService {
     }
 
     @Override
-    public void deleteBookInfo(Long id) {
-        bookInfoRepository.deleteById(id);
+    public void deleteBookInfo(Long isbn) {
+        bookInfoRepository.deleteById(isbn);
     }
 }

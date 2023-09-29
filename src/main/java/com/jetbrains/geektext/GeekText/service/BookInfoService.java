@@ -7,10 +7,10 @@ import java.util.Optional;
 
 public interface BookInfoService {
     List<BookInfoEntity> findAllBookInfo();
-    Optional<BookInfoEntity> findById(Long id); //I thought I'd use isbn, but it wont let me in bookinfoserviceimpl
+    Optional<BookInfoEntity> findByISBN(Long isbn); //I thought I'd use isbn, but it wont let me in bookinfoserviceimpl
     //additonally, long and Long are different... I've been using long, so i changed all to Long
-    //oh by adding @Id in entity, it seems to have renamed isbn to id..
+    //oh by adding @Id in entity, it seems to have renamed isbn to id.. the method should still work
     BookInfoEntity saveBookInfo(BookInfoEntity bookInfoEntity); //lowercase?
     BookInfoEntity updateBookInfo(BookInfoEntity bookInfoEntity); //lowercase as well
-    void deleteBookInfo(Long id);
+    void deleteBookInfo(Long isbn);
 }

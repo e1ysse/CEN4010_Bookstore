@@ -24,9 +24,9 @@ public class BookInfoController {
     }
 
 
-    @GetMapping("/{id}")
-    public Optional<BookInfoEntity> findBookInfoByID(@PathVariable("id") Long id){
-        return bookInfoService.findById(id);
+    @GetMapping("/{isbn}")
+    public Optional<BookInfoEntity> findBookInfoByISBN(@PathVariable("isbn") Long isbn){
+        return bookInfoService.findByISBN(isbn);
     }
 
     @PostMapping
@@ -40,7 +40,7 @@ public class BookInfoController {
     }
 
     @DeleteMapping
-    public void deleteBookInfo(@PathVariable("id") Long id){
-        bookInfoService.deleteBookInfo(id);
+    public void deleteBookInfo(@PathVariable("isbn") Long isbn){
+        bookInfoService.deleteBookInfo(isbn);
     }
 }
