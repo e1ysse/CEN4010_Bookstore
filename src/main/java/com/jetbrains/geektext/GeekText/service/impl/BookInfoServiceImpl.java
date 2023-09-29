@@ -6,6 +6,7 @@ import com.jetbrains.geektext.GeekText.service.BookInfoService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookInfoServiceImpl implements BookInfoService {
@@ -21,22 +22,22 @@ public class BookInfoServiceImpl implements BookInfoService {
     }
 
     @Override
-    public BookInfoEntity findByISBN(Long isbn) {
-        return null;
+    public Optional<BookInfoEntity> findById(Long id) {
+        return bookInfoRepository.findById(id); //maybe treat this like ISBN??
     }
 
     @Override
     public BookInfoEntity saveBookInfo(BookInfoEntity bookInfoEntity) {
-        return null;
+        return bookInfoRepository.save(bookInfoEntity);
     }
 
     @Override
     public BookInfoEntity updateBookInfo(BookInfoEntity bookInfoEntity) {
-        return null;
+        return bookInfoRepository.save(bookInfoEntity);
     }
 
     @Override
-    public void deleteBookInfo(Long isbn) {
-
+    public void deleteBookInfo(Long id) {
+        bookInfoRepository.deleteById(id);
     }
 }
