@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookInfoService {
-    List<BookInfoEntity> findAllBookDetails();
+    List<BookInfoEntity> findAllBookInfo();
     Optional<BookInfoEntity> findById(Long id); //I thought I'd use isbn, but it wont let me in bookinfoserviceimpl
     //additonally, long and Long are different... I've been using long, so i changed all to Long
     //oh by adding @Id in entity, it seems to have renamed isbn to id..

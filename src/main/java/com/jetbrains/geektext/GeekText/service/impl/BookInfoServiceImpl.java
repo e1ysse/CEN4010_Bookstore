@@ -17,7 +17,7 @@ public class BookInfoServiceImpl implements BookInfoService {
     }
 
     @Override
-    public List<BookInfoEntity> findAllBookDetails() {
+    public List<BookInfoEntity> findAllBookInfo() {
         return bookInfoRepository.findAll();
     }
 
