@@ -4,11 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "BookInfo")
-public class BookDetailsEntity {
+public class BookInfoEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "isbn")
-    private long isbn;
+    private Long isbn;
     @Column(name = "book_name")
     private String book_name;
     @Column(name = "description")
@@ -24,12 +24,12 @@ public class BookDetailsEntity {
     @Column(name = "year_published")
     private int year_published;
     @Column(name = "copies_sold")
-    private long copies_sold;
+    private Long copies_sold;
 
-    public BookDetailsEntity(){
+    public BookInfoEntity(){
     }
 
-    public BookDetailsEntity(long isbn, String book_name, String description, double price, String author, String genre, String publisher, int year_published, long copies_sold) {
+    public BookInfoEntity(long isbn, String book_name, String description, double price, String author, String genre, String publisher, int year_published, long copies_sold) {
         this.isbn = isbn;
         this.book_name = book_name;
         this.description = description;
