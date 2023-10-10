@@ -27,17 +27,7 @@ public class BookInfoServiceImpl implements BookInfoService {
     }
 
     @Override
-    public BookInfoEntity saveBookInfo(BookInfoEntity bookInfoEntity) {
+    public BookInfoEntity addBook(BookInfoEntity bookInfoEntity) {
         return bookInfoRepository.save(bookInfoEntity);
-    }
-
-    @Override
-    public BookInfoEntity updateBookInfo(BookInfoEntity bookInfoEntity) {
-        return bookInfoRepository.save(bookInfoEntity);
-    }
-
-    @Override
-    public void deleteBookInfo(Long isbn) {
-        bookInfoRepository.deleteById(isbn);
     }
 }

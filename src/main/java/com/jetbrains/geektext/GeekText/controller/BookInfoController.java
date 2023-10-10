@@ -23,24 +23,13 @@ public class BookInfoController {
         return bookInfoService.findAllBookInfo();
     }
 
-
     @GetMapping("/{isbn}")
     public Optional<BookInfoEntity> findBookInfoByISBN(@PathVariable("isbn") Long isbn){
         return bookInfoService.findByISBN(isbn);
     }
 
     @PostMapping
-    public BookInfoEntity saveBookInfo(@RequestBody BookInfoEntity bookInfoEntity){
-        return bookInfoService.saveBookInfo(bookInfoEntity);
-    }
-
-    @PutMapping
-    public BookInfoEntity updateBookInfo(@RequestBody BookInfoEntity bookInfoEntity){
-        return bookInfoService.updateBookInfo(bookInfoEntity);
-    }
-
-    @DeleteMapping
-    public void deleteBookInfo(@PathVariable("isbn") Long isbn){
-        bookInfoService.deleteBookInfo(isbn);
+    public BookInfoEntity addBook(@RequestBody BookInfoEntity bookInfoEntity){
+        return bookInfoService.addBook(bookInfoEntity);
     }
 }

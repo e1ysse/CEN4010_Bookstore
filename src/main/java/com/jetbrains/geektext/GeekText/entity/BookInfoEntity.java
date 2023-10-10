@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "BookInfo")
 public class BookInfoEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   // @GeneratedValue(strategy = GenerationType.IDENTITY) UGH this line was the only thing messing me up with isbns
     @Column(name = "isbn")
     private Long isbn;
     @Column(name = "book_name")
