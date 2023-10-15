@@ -9,20 +9,26 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
-    @Override
-    public List<UserEntity> findUserInfo() {
-        return null;
+    private final UserRepository userRepository;
+
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
-    public Optional<UserEntity> findByUserID(Long ID) {
-        return UserRepository.findById(ID);
+    public List<UserEntity> findAllUsers() {
+        return userRepository.findAll();
+    }
+
+    @Override
+    public Optional<UserEntity> findByUserID(Long user_ID) {
+        return userRepository.findById(user_ID);
     }
 
     @Override
     public UserEntity addUser(UserEntity userEntity) {
-        return null;
+        return userRepository.save(userEntity);
     }
 }
