@@ -1,6 +1,7 @@
 package com.jetbrains.geektext.GeekText.controller;
 
 import com.jetbrains.geektext.GeekText.entity.AuthorEntity;
+import com.jetbrains.geektext.GeekText.entity.BookInfoEntity;
 import com.jetbrains.geektext.GeekText.service.AuthorService;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +21,7 @@ public class AuthorController {
         return authorService.findAllAuthors();
     }
     @GetMapping("/{id}")
-    public Optional<AuthorEntity> getBooksbyAuthorid(Long id){
+    public Optional<BookInfoEntity> getBooksbyAuthorid(@PathVariable("id") Long id){
         return authorService.getBooksbyAuthorid(id);
     }
     @PostMapping
