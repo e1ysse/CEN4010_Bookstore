@@ -1,26 +1,33 @@
 package com.jetbrains.geektext.GeekText.service.impl;
 
 import com.jetbrains.geektext.GeekText.entity.AuthorEntity;
+import com.jetbrains.geektext.GeekText.repository.AuthorRepository;
 import com.jetbrains.geektext.GeekText.service.AuthorService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-//FIXME go to video 19:06. where you left off
+import java.util.Optional;
+
 @Service
 public class AuthorServiceImpl implements AuthorService {
+    private final AuthorRepository authorRepository;
 
-    @Override
-    public List<AuthorEntity> findAllAuthors() {
-        return null;
+    public AuthorServiceImpl(AuthorRepository authorRepository) {
+        this.authorRepository = authorRepository;
     }
 
     @Override
-    public AuthorEntity getBooksbyAuthorid(Long id) {
-        return null;
+    public List<AuthorEntity> findAllAuthors() {
+        return authorRepository.findAll();
+    }
+
+    @Override
+    public Optional<AuthorEntity> getBooksbyAuthorid(Long id) { //fixme to find books
+        return authorRepository.findById(id);
     }
 
     @Override
     public AuthorEntity addAuthor(AuthorEntity authorEntity) {
-        return null;
+        return authorRepository.save(authorEntity);
     }
 }
