@@ -2,7 +2,13 @@ package com.jetbrains.geektext.GeekText.controller;
 
 import com.jetbrains.geektext.GeekText.entity.CreditCardEntity;
 import com.jetbrains.geektext.GeekText.service.CreditCardService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.jetbrains.geektext.GeekText.entity.UserEntity;
+import com.jetbrains.geektext.GeekText.repository.UserRepository;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +18,10 @@ import java.util.Optional;
 public class CreditCardController {
 
     private final CreditCardService creditCardService;
+
+    @Autowired
+    private UserRepository userRepository;
+
 
     public CreditCardController(CreditCardService creditCardService){
         this.creditCardService = creditCardService;
@@ -28,7 +38,19 @@ public class CreditCardController {
     }
 
     @PostMapping
-    public CreditCardEntity addCreditCard(@RequestBody CreditCardEntity creditCardEntity){
-        return creditCardService.addCreditCard(creditCardEntity);
+    public ResponseEntity<Void> addCreditCard(@RequestBody CreditCardEntity creditCardEntity, @RequestParam("user_id") Long userId) {
+        UserEntity user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User not found"));
+        creditCardEntity.setUser(user);
+        creditCardService.addCreditCard(creditCardEntity);
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+
+
+    @DeleteMapping("/{creditCardNumber}")
+    public ResponseEntity<Void> deleteCreditCard(@PathVariable Long creditCardNumber) {
+        creditCardService.deleteCreditCard(creditCardNumber);
+        return ResponseEntity.noContent().build();
+    }
+
 }

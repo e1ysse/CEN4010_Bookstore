@@ -1,9 +1,6 @@
 package com.jetbrains.geektext.GeekText.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "User_CreditCard_Data_Base")
@@ -12,24 +9,33 @@ public class CreditCardEntity {
     @Id
     @Column(name = "credit_card_number")
     private Long creditCardNum;
+
     @Column(name = "expiration_date")
     private int expirationDate;
+
     @Column(name = "cvv")
     private int cvv;
+
     @Column(name = "name")
     private String name;
 
-    public CreditCardEntity(){
+    @ManyToOne
+    @JoinColumn(name = "user_ID", referencedColumnName = "user_ID")
+    private UserEntity user;
 
+    public CreditCardEntity() {
+        // Default constructor
     }
 
-    public CreditCardEntity(Long creditCardNum, int expirationDate, int cvv, String name) {
+    public CreditCardEntity(Long creditCardNum, int expirationDate, int cvv, String name, UserEntity user) {
         this.creditCardNum = creditCardNum;
         this.expirationDate = expirationDate;
         this.cvv = cvv;
         this.name = name;
+        this.user = user;
     }
 
+    // Getters and Setters
     public Long getCreditCardNum() {
         return creditCardNum;
     }
@@ -62,4 +68,11 @@ public class CreditCardEntity {
         this.name = name;
     }
 
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
 }

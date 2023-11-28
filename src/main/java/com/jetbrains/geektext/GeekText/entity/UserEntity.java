@@ -1,29 +1,32 @@
 package com.jetbrains.geektext.GeekText.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "User_Data_Base")
-
 public class UserEntity {
 
     @Id
     @Column(name = "user_ID")
     private Long user_ID;
-    @Column(name = "username")
+
+    @Column(name = "username", unique = true)
     private String username;
+
     @Column(name = "password")
     private String password;
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "email_address")
     private String email_address;
 
-    public UserEntity(){
 
+
+    public UserEntity() {
+        // Default constructor
     }
 
     public UserEntity(Long user_ID, String username, String password, String name, String email_address) {
@@ -34,6 +37,7 @@ public class UserEntity {
         this.email_address = email_address;
     }
 
+    // Getters and Setters
     public Long getUser_ID() {
         return user_ID;
     }
@@ -73,4 +77,6 @@ public class UserEntity {
     public void setEmail_address(String email_address) {
         this.email_address = email_address;
     }
+
+
 }

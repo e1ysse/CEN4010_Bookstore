@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CreditCardRepository extends JpaRepository<CreditCardEntity, Long> {
+    // You can add custom methods here if needed, such as finding credit cards by user
 
 }
